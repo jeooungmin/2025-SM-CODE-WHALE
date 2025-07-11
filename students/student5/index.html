@@ -1,121 +1,213 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기본 웹사이트</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>성적 조회 시스템 - 로그인</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+  </style>
 </head>
 <body>
-  <<<<<<< patch-13
-    <!-- 헤더 -->
-    <header>
-        <h1>웹사이트 제목</h1>
-        <p>여기는 웹사이트 설명입니다.</p>
-    </header>
 
-    <!-- 네비게이션 바 -->
-    <nav>
-        <ul>
-            <li><a href="#">홈</a></li>
-            <li><a href="#">서비스</a></li>
-            <li><a href="#">소개</a></li>
-            <li><a href="#">연락처</a></li>
-        </ul>
-    </nav>
+  <div class="login-box">
+    <h2>로그인</h2>
+    <form action="dashboard.html" method="GET" onsubmit="return login()">
+      <label for="username">아이디</label>
+      <input type="text" id="username" name="username" required>
 
-    <!-- 본문 -->
-    <section class="content">
-        <h2>본문 제목</h2>
-        <p>여기는 본문 내용입니다. 여기에 웹사이트의 주된 정보를 넣을 수 있습니다.</p>
-    </section>
+      <label for="role">역할</label>
+      <select id="role" name="role" required>
+        <option value="student">학생</option>
+        <option value="admin">관리자</option>
+      </select>
 
-    <!-- 푸터 -->
-    <footer>
-        <p>© 2025 웹사이트 이름. 모든 권리 보유.</p>
-    </footer>
-=======
-  <h1>1518 임정민</h1>
-  <p>※★team whale 파이팅★※</p>
+      <button type="submit">로그인</button>
+    </form>
+  </div>
+
+  <script>
+    function login() {
+      const role = document.getElementById("role").value;
+      if (role === "admin") {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "student.html";
+      }
+      return false;
+    }
+  </script>
+
 </body>
 </html>
-CSS 코드 (styles.css)
-css
-복사
-/* 기본 스타일 초기화 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+on>
+    </form>
+  </div>
 
-/* 전체 배경 색상 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
+  <script>
+    function login() {
+      const role = document.getElementById("role").value;
+      if (role === "admin") {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "student.html";
+      }
+      return false;
+    }
+  </script>
 
-/* 헤더 스타일 */
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
+</body>
+</html>
 
-header h1 {
-    font-size: 2.5rem;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>학생 성적 조회</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
 
-header p {
-    font-size: 1rem;
-}
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
 
-/* 네비게이션 바 스타일 */
-nav {
-    background-color: #444;
-    padding: 10px;
-    text-align: center;
-}
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
 
-nav ul {
-    list-style: none;
-}
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
+  <h2>📘 나의 성적</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>과목</th>
+        <th>점수</th>
+      </tr>
+    </thead>
+    <tbody id="grades">
+      <tr><td>수학</td><td>95</td></tr>
+      <tr><td>영어</td><td>88</td></tr>
+      <tr><td>과학</td><td>92</td></tr>
+    </tbody>
+  </table>
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
+</body>
+</html>
 
-/* 본문 스타일 */
-.content {
-    padding: 20px;
-    text-align: center;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>관리자 - 성적 관리</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
 
-.content h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
 
-.content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
 
-/* 푸터 스타일 */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    th {
+      background-color: #f7f7f7;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 6px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🛠️ 성적 관리</h2>
+
+  <form id="gradeForm">
+    <input type="text" id="studentName" placeholder="학생 이름" required>
+    <input type="text" id="subject" placeholder="과목" required>
+    <input type="number" id="score" placeholder="점수" required>
+    <button type="submit">추가</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>과목</th>
+        <th>점수</th>
+      </tr>
+    </thead>
+    <tbody id="gradeTable">
+      <!-- 동적으로 데이터가 들어갈 자리 -->
+    </tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById('gradeForm');
+    const table = document.getElementById('gradeTable');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('studentName').value;
+      const subject = document.getElementById('subject').value;
+      const score = document.getElementById('score').value;
+
+      const newRow = table.insertRow();
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${subject}</td>
+        <td>${score}</td>
+      `;
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
